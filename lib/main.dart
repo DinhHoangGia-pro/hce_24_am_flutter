@@ -10,6 +10,27 @@ import 'package:test1/mybutton.dart';
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
 
+  final List<String> dssanpham = <String>[
+    'Sản phẩm 1',
+    'Sản phẩm 2',
+    'Sản phẩm 3',
+    'Sản phẩm 4',
+    'Sản phẩm 5',
+    'Sản phẩm 6',
+    'Sản phẩm 7',
+    'Sản phẩm 8',
+    'Sản phẩm 9',
+    'Sản phẩm 10',
+    'Sản phẩm 11',
+    'Sản phẩm 12',
+    'Sản phẩm 13',
+    'Sản phẩm 14',
+    'Sản phẩm 15',
+    'Sản phẩm 16',
+    'Sản phẩm 17',
+    'Sản phẩm 18',
+  ];
+
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
@@ -24,19 +45,15 @@ void main() {
                 borderRadius: BorderRadius.circular(20.0),
                 color: Color(0xffcf83a9),
               ),
-              child: ListView(
-                children: [
-                  const ButtonSection(),
-                  CongHaiSo_Stateful(),
-                  Container(
-                    color: Colors.cyanAccent,
-                    child: CongHaiSo_Stateful(),
-                  ),
-                  CongHaiSo_Stateful(),
-                  CongHaiSo_Stateful(),
-                  CongHaiSo_Stateful(),
-                ],
-              ),
+              child: ListView.builder(
+                  itemCount: dssanpham.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      height: 50,
+                      color: Colors.amber,
+                      child: Text('Tên sản phẩm: ${dssanpham[index]}'),
+                    );
+                  }),
             )),
       )));
 }
