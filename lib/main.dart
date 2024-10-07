@@ -29,13 +29,16 @@ void main() {
                   itemCount: products.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
-                      height: 50,
-                      color: Color(0xff7caed5),
+                      height: 250,
+                      color: Color(0xffd5e0e8),
                       child: Column(children: [
-                        Hero(
-                            tag: "${products[index].id}",
-                            child:
-                                Image.asset(products[index].image.toString())),
+                        Expanded(
+                            child: Container(
+                                child: Hero(
+                                    tag: "${products[index].id}",
+                                    child: Image.asset(
+                                        products[index].image.toString())))),
+                        Padding(padding: EdgeInsets.symmetric(vertical: 10)),
                         Text(products[index].title.toString())
                       ]),
                     );
