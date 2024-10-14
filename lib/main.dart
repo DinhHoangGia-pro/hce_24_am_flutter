@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:test1/MyHttpOverrides.dart';
+import 'package:test1/ProductDetail.dart';
 import 'package:test1/cong2so.dart';
 import 'package:test1/cong2so_stateful.dart';
 import 'package:test1/myWidget1.dart';
@@ -35,53 +36,59 @@ void main() {
                     mainAxisSpacing: 10.0, // Khoảng cách giữa các hàng
                   ),
                   itemBuilder: (BuildContext context, int index) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                      elevation: 5.0, // Hiệu ứng đổ bóng cho sản phẩm
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              padding: EdgeInsets.all(5.0),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Hero(
-                                tag: "${products[index].id}",
-                                child: Image.asset(
-                                  products[index].image.toString(),
-                                  fit: BoxFit
-                                      .cover, // Đảm bảo hình ảnh phủ kín vùng
+                    return GestureDetector(
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) =>
+                                    ProductDetail(products[index]))),
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          elevation: 5.0, // Hiệu ứng đổ bóng cho sản phẩm
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  padding: EdgeInsets.all(5.0),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Hero(
+                                    tag: "${products[index].id}",
+                                    child: Image.asset(
+                                      products[index].image.toString(),
+                                      fit: BoxFit
+                                          .cover, // Đảm bảo hình ảnh phủ kín vùng
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          ListTile(
-                            title: Text(
-                              products[index].title.toString(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.0,
+                              ListTile(
+                                title: Text(
+                                  products[index].title.toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16.0,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow
+                                      .ellipsis, // Cắt bớt text nếu quá dài
+                                ),
+                                subtitle: Text(
+                                  "\$${products[index].price.toString()}",
+                                  style: TextStyle(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                trailing: Icon(Icons
+                                    .shopping_cart_outlined), // Biểu tượng giỏ hàng
                               ),
-                              maxLines: 1,
-                              overflow: TextOverflow
-                                  .ellipsis, // Cắt bớt text nếu quá dài
-                            ),
-                            subtitle: Text(
-                              "\$${products[index].price.toString()}",
-                              style: TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            trailing: Icon(Icons
-                                .shopping_cart_outlined), // Biểu tượng giỏ hàng
+                            ],
                           ),
-                        ],
-                      ),
-                    );
+                        ));
                   }),
             )),
       )));
