@@ -101,8 +101,8 @@ class ListProductState extends State<ListProduct> {
                                 onTap: () => Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) =>
-                                            ProductDetail(lstproducts[index]))),
+                                        builder: (_) => ProductDetail(
+                                            product: lstproducts[index]))),
                                 child: Image.asset(
                                   lstproducts[index].image.toString(),
                                   fit: BoxFit
