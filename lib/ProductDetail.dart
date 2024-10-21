@@ -3,11 +3,14 @@ import 'package:test1/models/Product.dart';
 
 class ProductDetail extends StatefulWidget {
   Product? _product;
+
   ProductDetail(this._product);
 
   @override
   ProductDetailState createState() => ProductDetailState();
 }
+
+//------------------------------
 
 class ProductDetailState extends State<ProductDetail> {
   Product? product;
