@@ -1,6 +1,12 @@
+import 'package:flutter/foundation.dart';
+import 'dart:convert';
+
 class Product {
   final String? image, title, description;
-  final int price, size, id;
+  final double price;
+
+  final size, id;
+
   Product(
       {required this.image,
       required this.title,
@@ -8,6 +14,17 @@ class Product {
       required this.description,
       required this.size,
       this.id = 0});
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      title: json['title'],
+      description: json['description'],
+      size: 0,
+      price: json['price'].toDouble(),
+      image: json['image'],
+    );
+  }
 }
 
 List<Product> products = [
