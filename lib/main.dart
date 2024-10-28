@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:test1/CartScreen.dart';
+import 'package:test1/LoginScreen.dart';
 import 'package:test1/MyHttpOverrides.dart';
 import 'package:test1/ProductDetail.dart';
 import 'package:test1/cong2so.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: LoginScreen(),
     );
   }
 }
