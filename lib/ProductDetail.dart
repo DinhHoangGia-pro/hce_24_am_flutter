@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test1/models/Product.dart';
+import 'models/Cart.dart';
 
 class ProductDetail extends StatefulWidget {
   Product product;
@@ -144,7 +145,7 @@ class ProductDetailState extends State<ProductDetail> {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     // Thêm sản phẩm vào giỏ hàng
-                    //Cart.addToCart(product);
+                    Cart.addToCart(product);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('${product.title} added to cart!'),

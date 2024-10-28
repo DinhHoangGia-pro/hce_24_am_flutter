@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:test1/CartScreen.dart';
 import 'package:test1/MyHttpOverrides.dart';
 import 'package:test1/ProductDetail.dart';
 import 'package:test1/cong2so.dart';
@@ -35,11 +36,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   // Define pages for navigation
-  final List<Widget> _pages = [
-    ListProduct(),
-    ListProduct(),
-    ListProduct(),
-  ];
+  final List<Widget> _pages = [ListProduct(), ListProduct(), CartScreen()];
 
   // Function to handle tab switching
   void _onItemTapped(int index) {
