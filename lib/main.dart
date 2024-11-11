@@ -7,6 +7,7 @@ import 'package:test1/MyHttpOverrides.dart';
 
 import 'package:test1/ListProduct.dart';
 import 'package:test1/ListProductAPI.dart';
+import 'package:test1/TestWidget.dart';
 
 import 'package:test1/myWidget1.dart';
 import 'package:test1/mybutton.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      //home: LoginScreen(),
+      home: MainScreen(),
     );
   }
 }
@@ -37,7 +39,12 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   // Define pages for navigation
-  final List<Widget> _pages = [ListProductAPI(), ListProduct(), CartScreen()];
+  final List<Widget> _pages = [
+    ListProductAPI(),
+    ListProduct(),
+    TestWidget(),
+    CartScreen()
+  ];
 
   // Function to handle tab switching
   void _onItemTapped(int index) {
@@ -62,6 +69,10 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
             label: 'Products',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Test',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_cart),
