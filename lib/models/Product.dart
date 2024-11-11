@@ -2,14 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'dart:convert';
 
 class Product {
-  final String? image, title, description, category;
+  final String? image, image_url, title, description, category, name;
   final double price;
 
   final size, id;
 
   Product(
       {required this.image,
-      required this.title,
+      this.title = "",
+      this.image_url = "",
+      this.name = "",
       this.category = "",
       this.price = 0,
       required this.description,
@@ -20,11 +22,13 @@ class Product {
     return Product(
       id: json['id'],
       title: json['title'],
+      name: json['name'],
       category: json['category'],
       description: json['description'],
       size: 0,
       price: json['price'].toDouble(),
       image: json['image'],
+      image_url: json['image_url'],
     );
   }
 }
