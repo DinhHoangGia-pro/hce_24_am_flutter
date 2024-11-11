@@ -23,8 +23,9 @@ class ProductDetailAPIState extends State<ProductDetailAPI> {
   late Future<List<Product>> lstsanphamlienquan;
 
   Future<List<Product>> Laysanphamlienquantubackend(String catalog) async {
-    final response = await http.get(
-        Uri.parse('https://fakestoreapi.com/products/category/' + catalog));
+    final response = await http.get(Uri.parse(
+        'https://6731c05f7aaf2a9aff11dd05.mockapi.io/products?category=' +
+            catalog));
 
     if (response.statusCode == 200) {
       // Chuyển đổi JSON sang danh sách các đối tượng Product

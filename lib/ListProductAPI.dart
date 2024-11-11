@@ -26,8 +26,8 @@ class ListProductAPIState extends State<ListProductAPI> {
   }
 
   Future<List<Product>> fetchProducts() async {
-    final response =
-        await http.get(Uri.parse('https://fakestoreapi.com/products'));
+    final response = await http
+        .get(Uri.parse('https://6731c05f7aaf2a9aff11dd05.mockapi.io/products'));
 
     if (response.statusCode == 200) {
       // Chuyển đổi JSON sang danh sách các đối tượng Product
